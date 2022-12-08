@@ -1,0 +1,8 @@
+.gameSpace {
+  height: 150px;
+  width: 110px;
+}
+
+.flex-container {
+  display: flex;
+}
