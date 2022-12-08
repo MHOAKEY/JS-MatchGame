@@ -8,36 +8,37 @@ gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
 
-function CheckIfPair() {
-  if (count === 2) {
-  }
-}
-
 function showCard(event) {
   count++;
-  if (event.target.classList.contains("1") === "1") {
+  if (event.target.classList.contains("1")) {
     event.target.innerHTML = "!";
   }
-  if (event.target.classList.contains("2") === "2") {
+  if (event.target.classList.contains("2")) {
     event.target.innerHTML = "@";
   }
-  if (event.target.classList.contains("3") === "3") {
+  if (event.target.classList.contains("3")) {
     event.target.innerHTML = "#";
   }
-  if (event.target.classList.contains("4") === "4") {
+  if (event.target.classList.contains("4")) {
     event.target.innerHTML = "$";
   }
-  if (event.target.classList.contains("5") === "5") {
+  if (event.target.classList.contains("5")) {
     event.target.innerHTML = "%";
   }
-  if (event.target.classList.contains("6") === "6") {
+  if (event.target.classList.contains("6")) {
     event.target.innerHTML = "^";
   }
-  if (event.target.classList.contains("7") === "7") {
+  if (event.target.classList.contains("7")) {
     event.target.innerHTML = "&";
   }
-  if (event.target.classList.contains("8") === "8") {
+  if (event.target.classList.contains("8")) {
     event.target.innerHTML = "*";
+  }
+  if (count === 2) {
+    if (event.target.innerHTML === previousCard.innerHTML) {
+      event.target.disabled = true;
+      previousCard.disabled = true;
+    }
   }
   previousCard = event.target;
 }
