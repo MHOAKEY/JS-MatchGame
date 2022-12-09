@@ -10,6 +10,7 @@ gameSpaces.forEach((gameSpace) => {
 
 function showCard(event) {
   count++;
+  console.log(count);
   if (event.target.classList.contains("1")) {
     event.target.innerHTML = "!";
   }
@@ -38,6 +39,13 @@ function showCard(event) {
     if (event.target.innerHTML === previousCard.innerHTML) {
       event.target.disabled = true;
       previousCard.disabled = true;
+      count = 0;
+    }
+    if (event.target.innerHTML !== previousCard.innerHTML) {
+      event.target.innerHTML = "";
+      previousCard.innerHTML = "";
+      count = 0;
+      previousCard = "";
     }
   }
   previousCard = event.target;
