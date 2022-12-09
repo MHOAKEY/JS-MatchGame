@@ -1,6 +1,8 @@
 let count = 0;
 
-let previousCard = "";
+let firstCard = "";
+
+let secondCard = "";
 
 const gameSpaces = document.querySelectorAll(".gameSpace");
 
@@ -8,9 +10,15 @@ gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
 
+function clearCards(event) {
+  firstCard.innerHTML = "";
+  secondCard.innerHTML = "";
+  count = 0;
+  firstCard = "";
+}
+
 function showCard(event) {
   count++;
-  console.log(count);
   if (event.target.classList.contains("1")) {
     event.target.innerHTML = "!";
   }
@@ -35,18 +43,18 @@ function showCard(event) {
   if (event.target.classList.contains("8")) {
     event.target.innerHTML = "*";
   }
+  if (count === 1) {
+    firstCard = event.target;
+  }
   if (count === 2) {
-    if (event.target.innerHTML === previousCard.innerHTML) {
+    secondCard = event.target;
+    if (secondCard.innerHTML === firstCard.innerHTML) {
       event.target.disabled = true;
-      previousCard.disabled = true;
+      firstCard.disabled = true;
       count = 0;
     }
-    if (event.target.innerHTML !== previousCard.innerHTML) {
-      event.target.innerHTML = "";
-      previousCard.innerHTML = "";
-      count = 0;
-      previousCard = "";
+    if (secondCard.innerHTML !== firstCard.innerHTML) {
+      setTimeout(clearCards, 2000);
     }
   }
-  previousCard = event.target;
 }
