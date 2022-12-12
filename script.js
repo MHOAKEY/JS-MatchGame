@@ -10,17 +10,17 @@ gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
 
-function disableClicks() {
+function toggleClicks() {
   gameSpaces.forEach((gameSpace) => {
-    gameSpace.classList.add("preventClick");
+    gameSpace.classList.toggle("preventClick");
   });
 }
 
-function enableClicks() {
-  gameSpaces.forEach((gameSpace) => {
-    gameSpace.classList.remove("preventClick");
-  });
-}
+// function enableClicks() {
+//   gameSpaces.forEach((gameSpace) => {
+//     gameSpace.classList.remove("preventClick");
+//   });
+// }
 
 function clearCards(event) {
   firstCard.innerHTML = "";
@@ -30,7 +30,7 @@ function clearCards(event) {
   secondCard.disabled = false;
   firstCard = "";
   secondCard = "";
-  enableClicks();
+  toggleClicks();
 }
 
 function showCard(event) {
@@ -64,13 +64,14 @@ function showCard(event) {
     firstCard.disabled = true;
   }
   if (count === 2) {
-    disableClicks();
+    toggleClicks();
     secondCard = event.target;
     secondCard.disabled = true;
     if (secondCard.innerHTML === firstCard.innerHTML) {
       secondCard.disabled = true;
       firstCard.disabled = true;
       count = 0;
+      toggleClicks();
     }
     if (secondCard.innerHTML !== firstCard.innerHTML) {
       setTimeout(clearCards, 1000);
