@@ -16,12 +16,6 @@ function toggleClicks() {
   });
 }
 
-// function enableClicks() {
-//   gameSpaces.forEach((gameSpace) => {
-//     gameSpace.classList.remove("preventClick");
-//   });
-// }
-
 function clearCards(event) {
   firstCard.innerHTML = "";
   secondCard.innerHTML = "";
