@@ -7,3 +7,7 @@
 .flex-container {
   display: flex;
 }
+
+.preventClick {
+  pointer-events: none;
+}

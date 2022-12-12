@@ -10,6 +10,18 @@ gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
 
+function disableClicks() {
+  gameSpaces.forEach((gameSpace) => {
+    gameSpace.classList.add("preventClick");
+  });
+}
+
+function enableClicks() {
+  gameSpaces.forEach((gameSpace) => {
+    gameSpace.classList.remove("preventClick");
+  });
+}
+
 function clearCards(event) {
   firstCard.innerHTML = "";
   secondCard.innerHTML = "";
@@ -18,6 +30,7 @@ function clearCards(event) {
   secondCard.disabled = false;
   firstCard = "";
   secondCard = "";
+  enableClicks();
 }
 
 function showCard(event) {
@@ -51,6 +64,7 @@ function showCard(event) {
     firstCard.disabled = true;
   }
   if (count === 2) {
+    disableClicks();
     secondCard = event.target;
     secondCard.disabled = true;
     if (secondCard.innerHTML === firstCard.innerHTML) {
