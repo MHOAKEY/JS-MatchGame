@@ -1,3 +1,7 @@
+// remove ability to click same card twice.
+// limit of two cards per turn.
+//
+
 let count = 0;
 
 let firstCard = "";
@@ -54,7 +58,7 @@ function showCard(event) {
       count = 0;
     }
     if (secondCard.innerHTML !== firstCard.innerHTML) {
-      setTimeout(clearCards, 2000);
+      setTimeout(clearCards, 1000);
     }
   }
 }
