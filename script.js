@@ -46,6 +46,7 @@ function showCard(event) {
   } else if (event.target.classList.contains("-8")) {
     event.target.innerHTML = "*";
   }
+
   if (count === 1) {
     firstCard = event.target;
     firstCard.disabled = true;
