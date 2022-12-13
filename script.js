@@ -29,21 +29,21 @@ function clearCards(event) {
 
 function showCard(event) {
   count++;
-  if (event.target.classList.contains("1")) {
+  if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
-  } else if (event.target.classList.contains("2")) {
+  } else if (event.target.classList.contains("-2")) {
     event.target.innerHTML = "@";
-  } else if (event.target.classList.contains("3")) {
+  } else if (event.target.classList.contains("-3")) {
     event.target.innerHTML = "#";
-  } else if (event.target.classList.contains("4")) {
+  } else if (event.target.classList.contains("-4")) {
     event.target.innerHTML = "$";
-  } else if (event.target.classList.contains("5")) {
+  } else if (event.target.classList.contains("-5")) {
     event.target.innerHTML = "%";
-  } else if (event.target.classList.contains("6")) {
+  } else if (event.target.classList.contains("-6")) {
     event.target.innerHTML = "^";
-  } else if (event.target.classList.contains("7")) {
+  } else if (event.target.classList.contains("-7")) {
     event.target.innerHTML = "&";
-  } else if (event.target.classList.contains("8")) {
+  } else if (event.target.classList.contains("-8")) {
     event.target.innerHTML = "*";
   }
   if (count === 1) {
