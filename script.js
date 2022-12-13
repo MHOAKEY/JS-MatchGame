@@ -31,33 +31,25 @@ function showCard(event) {
   count++;
   if (event.target.classList.contains("1")) {
     event.target.innerHTML = "!";
-  }
-  if (event.target.classList.contains("2")) {
+  } else if (event.target.classList.contains("2")) {
     event.target.innerHTML = "@";
-  }
-  if (event.target.classList.contains("3")) {
+  } else if (event.target.classList.contains("3")) {
     event.target.innerHTML = "#";
-  }
-  if (event.target.classList.contains("4")) {
+  } else if (event.target.classList.contains("4")) {
     event.target.innerHTML = "$";
-  }
-  if (event.target.classList.contains("5")) {
+  } else if (event.target.classList.contains("5")) {
     event.target.innerHTML = "%";
-  }
-  if (event.target.classList.contains("6")) {
+  } else if (event.target.classList.contains("6")) {
     event.target.innerHTML = "^";
-  }
-  if (event.target.classList.contains("7")) {
+  } else if (event.target.classList.contains("7")) {
     event.target.innerHTML = "&";
-  }
-  if (event.target.classList.contains("8")) {
+  } else if (event.target.classList.contains("8")) {
     event.target.innerHTML = "*";
   }
   if (count === 1) {
     firstCard = event.target;
     firstCard.disabled = true;
-  }
-  if (count === 2) {
+  } else if (count === 2) {
     toggleClicks();
     secondCard = event.target;
     secondCard.disabled = true;
@@ -66,8 +58,7 @@ function showCard(event) {
       firstCard.disabled = true;
       count = 0;
       toggleClicks();
-    }
-    if (secondCard.innerHTML !== firstCard.innerHTML) {
+    } else if (secondCard.innerHTML !== firstCard.innerHTML) {
       setTimeout(clearCards, 1000);
     }
   }
