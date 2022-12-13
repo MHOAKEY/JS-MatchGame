@@ -56,7 +56,7 @@ function showCard(event) {
     secondCard.disabled = true;
     if (secondCard.innerHTML !== firstCard.innerHTML) {
       setTimeout(clearCards, 1000);
-    } else if (secondCard.innerHTML === firstCard.innerHTML) {
+    } else {
       secondCard.disabled = true;
       firstCard.disabled = true;
       count = 0;
