@@ -54,13 +54,13 @@ function showCard(event) {
     toggleClicks();
     secondCard = event.target;
     secondCard.disabled = true;
-    if (secondCard.innerHTML === firstCard.innerHTML) {
+    if (secondCard.innerHTML !== firstCard.innerHTML) {
+      setTimeout(clearCards, 1000);
+    } else if (secondCard.innerHTML === firstCard.innerHTML) {
       secondCard.disabled = true;
       firstCard.disabled = true;
       count = 0;
       toggleClicks();
-    } else if (secondCard.innerHTML !== firstCard.innerHTML) {
-      setTimeout(clearCards, 1000);
     }
   }
 }
