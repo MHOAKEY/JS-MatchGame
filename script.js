@@ -1,14 +1,21 @@
 let count = 0;
-
 let firstCard = "";
-
 let secondCard = "";
-
 const gameSpaces = document.querySelectorAll(".gameSpace");
+const reset = document.getElementById("reset");
 
 gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
+
+reset.addEventListener("click", resetGame);
+
+function resetGame() {
+  gameSpaces.forEach((gameSpace) => {
+    gameSpace.innerHTML = "";
+    gameSpace.disabled = false;
+  });
+}
 
 function toggleClicks() {
   gameSpaces.forEach((gameSpace) => {
