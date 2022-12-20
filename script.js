@@ -1,8 +1,10 @@
 let count = 0;
+let click = 0;
 let firstCard = "";
 let secondCard = "";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const reset = document.getElementById("reset");
+const clicks = document.getElementById("clicks");
 
 gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
@@ -36,6 +38,8 @@ function clearCards(event) {
 
 function showCard(event) {
   count++;
+  click++;
+  clicks.innerHTML = click;
   if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
   } else if (event.target.classList.contains("-2")) {
