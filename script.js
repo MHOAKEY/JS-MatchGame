@@ -38,7 +38,6 @@ function insertName(userInput) {
 
 function resetGame() {
   if (checkWin() && click / 2 >= 8 && click / 2 <= userRecord) {
-    console.log("inside if");
     userRecord = click / 2;
     record.innerHTML = "RECORD: " + userRecord;
   }
