@@ -1,10 +1,10 @@
 let count = 0;
-let turn = 0;
+let click = 0;
 let firstCard = "";
 let secondCard = "";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const reset = document.getElementById("reset");
-const turns = document.getElementById("turns");
+const turns = document.getElementById("click");
 const record = document.getElementById("record");
 
 gameSpaces.forEach((gameSpace) => {
@@ -20,11 +20,11 @@ function resetGame() {
   });
   if (
     (record.innerHTML === "" && turns.innerHTML >= 8) ||
-    turn / 2 <= record.innerHTML
+    click / 2 <= record.innerHTML
   ) {
-    record.innerHTML = turn / 2;
+    record.innerHTML = click / 2;
   }
-  turn = 0;
+  click = 0;
   turns.innerHTML = "";
 }
 
@@ -47,8 +47,8 @@ function clearCards(event) {
 
 function showCard(event) {
   count++;
-  turn++;
-  turns.innerHTML = turn / 2;
+  click++;
+  turns.innerHTML = click / 2;
   if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
   } else if (event.target.classList.contains("-2")) {
