@@ -5,7 +5,7 @@ let secondCard = "";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const reset = document.getElementById("reset");
 const clicks = document.getElementById("clicks");
-const score = document.getElementById("score");
+const record = document.getElementById("record");
 
 gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
@@ -18,8 +18,11 @@ function resetGame() {
     gameSpace.innerHTML = "";
     gameSpace.disabled = false;
   });
-  if (score.innerHTML === "" || click <= score.innerHTML) {
-    score.innerHTML = click;
+  if (
+    (record.innerHTML === "" && clicks.innerHTML >= 16) ||
+    click <= record.innerHTML
+  ) {
+    record.innerHTML = click;
   }
   click = 0;
   clicks.innerHTML = "";
