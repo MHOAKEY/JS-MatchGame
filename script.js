@@ -4,7 +4,7 @@ let firstCard = "";
 let secondCard = "";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const reset = document.getElementById("reset");
-const turns = document.getElementById("click");
+const turns = document.getElementById("userClick");
 const record = document.getElementById("record");
 
 gameSpaces.forEach((gameSpace) => {
@@ -17,7 +17,7 @@ function insertName(userInput) {
   let userName = document.getElementById("userName");
   let inputName = document.getElementById("nameID");
 
-  userName.innerHTML = inputName.value + "'s";
+  userName.innerHTML = inputName.value + "'s ";
   inputName.style.visibility = "hidden";
   document.getElementById("submitButton").style.visibility = "hidden";
 }
@@ -28,13 +28,13 @@ function resetGame() {
     gameSpace.disabled = false;
   });
   if (
-    (record.innerHTML === "" && turns.innerHTML >= 8) ||
-    click / 2 <= record.innerHTML
+    (record.innerHTML === "RECORD: " && turns.innerHTML.slice(7) >= 8) ||
+    click / 2 <= record.innerHTML.slice(8)
   ) {
-    record.innerHTML = click / 2;
+    record.innerHTML = "RECORD: " + click / 2;
   }
   click = 0;
-  turns.innerHTML = "";
+  turns.innerHTML = "TURNS: ";
 }
 
 function toggleClicks() {
@@ -57,7 +57,7 @@ function clearCards(event) {
 function showCard(event) {
   count++;
   click++;
-  turns.innerHTML = click / 2;
+  turns.innerHTML = "TURNS: " + click / 2;
   if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
   } else if (event.target.classList.contains("-2")) {
