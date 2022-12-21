@@ -57,7 +57,9 @@ function clearCards(event) {
 function showCard(event) {
   count++;
   click++;
-  turns.innerHTML = "TURNS: " + click / 2;
+  if (click % 2 === 0) {
+    turns.innerHTML = "TURNS: " + click / 2;
+  }
   if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
   } else if (event.target.classList.contains("-2")) {
