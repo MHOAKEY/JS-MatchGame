@@ -1,5 +1,6 @@
 let count = 0;
 let click = 0;
+let userRecord = 1000;
 let firstCard = "";
 let secondCard = "";
 const gameSpaces = document.querySelectorAll(".gameSpace");
@@ -13,6 +14,19 @@ gameSpaces.forEach((gameSpace) => {
 
 reset.addEventListener("click", resetGame);
 
+function checkWin() {
+  let counter = 0;
+  gameSpaces.forEach((gameSpace) => {
+    if (gameSpace.disabled === true) {
+      counter++;
+    }
+  });
+  if (counter === 16) {
+    return true;
+  }
+  return false;
+}
+
 function insertName(userInput) {
   let userName = document.getElementById("userName");
   let inputName = document.getElementById("nameID");
@@ -23,18 +37,18 @@ function insertName(userInput) {
 }
 
 function resetGame() {
+  if (checkWin() && click / 2 >= 8 && click / 2 <= userRecord) {
+    console.log("inside if");
+    userRecord = click / 2;
+    record.innerHTML = "RECORD: " + userRecord;
+  }
+  click = 0;
+  turns.innerHTML = "TURNS: ";
+
   gameSpaces.forEach((gameSpace) => {
     gameSpace.innerHTML = "";
     gameSpace.disabled = false;
   });
-  if (
-    (record.innerHTML === "RECORD: " && turns.innerHTML.slice(7) >= 8) ||
-    click / 2 <= record.innerHTML.slice(8)
-  ) {
-    record.innerHTML = "RECORD: " + click / 2;
-  }
-  click = 0;
-  turns.innerHTML = "TURNS: ";
 }
 
 function toggleClicks() {
