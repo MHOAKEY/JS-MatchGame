@@ -13,6 +13,15 @@ gameSpaces.forEach((gameSpace) => {
 
 reset.addEventListener("click", resetGame);
 
+function insertName(userInput) {
+  let userName = document.getElementById("userName");
+  let inputName = document.getElementById("nameID");
+
+  userName.innerHTML = inputName.value + "'s";
+  inputName.style.visibility = "hidden";
+  document.getElementById("submitButton").style.visibility = "hidden";
+}
+
 function resetGame() {
   gameSpaces.forEach((gameSpace) => {
     gameSpace.innerHTML = "";
