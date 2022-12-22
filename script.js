@@ -64,7 +64,7 @@ function toggleClicks() {
   });
 }
 
-function clearCards(event) {
+function clearCards() {
   firstCard.innerHTML = "";
   secondCard.innerHTML = "";
   count = 0;
@@ -73,6 +73,12 @@ function clearCards(event) {
   firstCard = "";
   secondCard = "";
   toggleClicks();
+
+  gameSpaces.forEach((gameSpace) => {
+    if (gameSpace.style.backgroundColor != "green") {
+      gameSpace.style.backgroundColor = "rgba(42, 170, 17, 0.723)";
+    }
+  });
 }
 
 function showCard(event) {
@@ -83,20 +89,28 @@ function showCard(event) {
   }
   if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-2")) {
     event.target.innerHTML = "@";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-3")) {
     event.target.innerHTML = "#";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-4")) {
     event.target.innerHTML = "$";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-5")) {
     event.target.innerHTML = "%";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-6")) {
     event.target.innerHTML = "^";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-7")) {
     event.target.innerHTML = "&";
+    event.target.style.backgroundColor = "white";
   } else if (event.target.classList.contains("-8")) {
     event.target.innerHTML = "*";
+    event.target.style.backgroundColor = "white";
   }
 
   if (count === 1) {
