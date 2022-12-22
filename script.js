@@ -55,6 +55,7 @@ function resetGame() {
   gameSpaces.forEach((gameSpace) => {
     gameSpace.innerHTML = "";
     gameSpace.disabled = false;
+    gameSpace.style.backgroundColor = "rgba(42, 170, 17, 0.723)";
   });
 }
 
@@ -75,7 +76,10 @@ function clearCards() {
   toggleClicks();
 
   gameSpaces.forEach((gameSpace) => {
-    if (gameSpace.style.backgroundColor != "green") {
+    if (
+      gameSpace.innerHTML === "" &&
+      gameSpace.style.backgroundColor === "white"
+    ) {
       gameSpace.style.backgroundColor = "rgba(42, 170, 17, 0.723)";
     }
   });
