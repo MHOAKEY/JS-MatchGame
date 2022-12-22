@@ -8,11 +8,19 @@ const reset = document.getElementById("reset");
 const turns = document.getElementById("userClick");
 const record = document.getElementById("record");
 
+document.addEventListener("keydown", keysDisable);
+
 gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
 
 reset.addEventListener("click", resetGame);
+
+function keysDisable(event) {
+  if (event.keyCode == "13" || event.keyCode == "9") {
+    event.preventDefault();
+  }
+}
 
 function checkWin() {
   let counter = 0;
