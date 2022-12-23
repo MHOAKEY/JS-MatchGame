@@ -3,16 +3,26 @@ let click = 0;
 let userRecord = 1000;
 let firstCard = "";
 let secondCard = "";
+const colorWhite = "white";
+const cardColor = "rgba(42, 170, 17, 0.723)";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const reset = document.getElementById("reset");
 const turns = document.getElementById("userClick");
 const record = document.getElementById("record");
+
+document.addEventListener("keydown", keysDisable);
 
 gameSpaces.forEach((gameSpace) => {
   gameSpace.addEventListener("click", showCard);
 });
 
 reset.addEventListener("click", resetGame);
+
+function keysDisable(event) {
+  if (event.keyCode == "13" || event.keyCode == "9") {
+    event.preventDefault();
+  }
+}
 
 function checkWin() {
   let counter = 0;
@@ -47,6 +57,7 @@ function resetGame() {
   gameSpaces.forEach((gameSpace) => {
     gameSpace.innerHTML = "";
     gameSpace.disabled = false;
+    gameSpace.style.backgroundColor = cardColor;
   });
 }
 
@@ -56,7 +67,7 @@ function toggleClicks() {
   });
 }
 
-function clearCards(event) {
+function clearCards() {
   firstCard.innerHTML = "";
   secondCard.innerHTML = "";
   count = 0;
@@ -65,6 +76,15 @@ function clearCards(event) {
   firstCard = "";
   secondCard = "";
   toggleClicks();
+
+  gameSpaces.forEach((gameSpace) => {
+    if (
+      gameSpace.innerHTML === "" &&
+      gameSpace.style.backgroundColor === colorWhite
+    ) {
+      gameSpace.style.backgroundColor = cardColor;
+    }
+  });
 }
 
 function showCard(event) {
@@ -75,20 +95,28 @@ function showCard(event) {
   }
   if (event.target.classList.contains("-1")) {
     event.target.innerHTML = "!";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-2")) {
     event.target.innerHTML = "@";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-3")) {
     event.target.innerHTML = "#";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-4")) {
     event.target.innerHTML = "$";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-5")) {
     event.target.innerHTML = "%";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-6")) {
     event.target.innerHTML = "^";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-7")) {
     event.target.innerHTML = "&";
+    event.target.style.backgroundColor = colorWhite;
   } else if (event.target.classList.contains("-8")) {
     event.target.innerHTML = "*";
+    event.target.style.backgroundColor = colorWhite;
   }
 
   if (count === 1) {
