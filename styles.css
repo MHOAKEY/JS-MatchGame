@@ -1,6 +1,7 @@
 .gameSpace {
   background-color: rgba(42, 170, 17, 0.723);
   border-radius: 8px;
+  color: rgba(42, 170, 17, 0.723);
   font-size: 100px;
   height: 150px;
   width: 110px;
